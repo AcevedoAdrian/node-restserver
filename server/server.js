@@ -24,7 +24,10 @@ app.use(require('./routes/usuario'));
 
 //conexion a la base de datos, por mas que no exista la bd, igual verifica la conexion
 //si existe un error lo muestra caso contrario muestra el log. protocolo/urlBD:puerto/NombreBD
-mongoose.connect('mongodb://localhost:27017/cafe', (err, res) => {
+mongoose.connect('mongodb://localhost:27017/cafe', {
+    useCreateIndex: true,
+    useNewUrlParser: true
+}, (err, res) => {
 
     if (err) throw err;
 
